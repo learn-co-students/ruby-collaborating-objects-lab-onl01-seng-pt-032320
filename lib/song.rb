@@ -15,11 +15,8 @@ class Song
   end
   
   def artist_name=(name)
-    if (self.artist.nil?)
-      self.artist = Artist.new(name)
-    else
-      self.artist.name = name
-    end
+    name_artist = Artist.find_or_create_by_name(name)
+    self.artist = name_artist
   end
   
   def self.all
