@@ -6,16 +6,14 @@ class Artist
   
   def initialize (name)
     @name = name
-    if !(@@all.include? (self))
-      @@all << self 
-    end 
+    @@all << self
   end 
   
   def self.all 
     @@all
   end 
   
-  def add_song (song)
+  def add_song (song)      
     song.artist = self
   end 
   
@@ -28,7 +26,7 @@ class Artist
       self.all.find { |artist| artist.name == new_name}
     else
       new_artist = Artist.new(new_name)
-      @@all << new_artist
+      @@all << self
       new_artist
     end 
   end 
