@@ -26,7 +26,8 @@ class Artist
       self.all.find { |artist| artist.name == new_name}
     else
       new_artist = Artist.new(new_name)
-      @@all << self
+      @@all << new_artist
+      @@all.uniq!
       new_artist
     end 
   end 
