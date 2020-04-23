@@ -38,7 +38,9 @@ class Artist
       return my_artist
   end
 
+def print_songs
+    self
+end
 
-  
   
 end
