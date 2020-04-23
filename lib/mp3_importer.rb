@@ -1,6 +1,6 @@
 class MP3Importer
   
-  attr_accessor :poth 
+  attr_accessor :path 
   
   def initialize(path)
     @path = path 
