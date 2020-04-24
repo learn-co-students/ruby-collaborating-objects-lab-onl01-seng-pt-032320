@@ -12,7 +12,14 @@ class MP3Importer
       file.slice!("#{path}/")
       file
     end
-   
   end
   
+  def import 
+       files.each do |file|
+         Song.new_by_filename(file) 
+             #binding.pry
+      #song.new 
+        end 
+ end 
+
 end

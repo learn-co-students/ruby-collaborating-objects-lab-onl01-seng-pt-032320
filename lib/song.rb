@@ -5,14 +5,12 @@ class Song
   
   @@all = []
   
-  def initialize(name)
+  def initialize(name, artist = nil)
     @name = name
+    @artist = artist
     @@all << self
   end
   
-  def artist 
-    @artist
-  end
   
   def self.all
     @@all
@@ -21,15 +19,18 @@ class Song
   ##create new song instance using songname
   ##associate new song with artist USING @artist
   ##return new song instance
+  ## can I create a song instance with a name and artist?
   
-  def self.new_by_filename(file_name)
-  
-  song_string = file_name.split(" - ")[1]
-  song_obj = Song.new(song_string)
-  song_artist_string = file_name.split(" - ")[0]
-  artist = song_artist
-    
+  def self.new_by_filename(filename)
+  # binding.pry
+  song_string = filename.split(" - ")[1]
+  artist_name_string = filename.split(" - ")[0]
+  artist_obj = Artist.new(artist_name_string)
+  song_obj = Song.new(song_string, artist_obj)
+
   end
 
- 
+  def artist_name=(name)
+  self.artist = Artist.find_or_create_by_name(name)
+  end
 end
