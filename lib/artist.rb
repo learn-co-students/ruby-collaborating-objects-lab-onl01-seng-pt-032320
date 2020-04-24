@@ -14,11 +14,11 @@ class Artist
         @@all
     end
 
-    def add_song(song)
-        song_tracker = Song.new(name)
-        song_tracker.artist = self
-    # songs << song_tracker
-    end
+    def add_song(artists_songs)
+        artists_songs = Song.new(name)
+        artists_songs.artist = self
+        songs << artists_songs
+    end 
     
     def songs 
         Song.all.select {|song| song.artist = self}
