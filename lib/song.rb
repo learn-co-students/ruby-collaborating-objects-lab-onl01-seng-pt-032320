@@ -1,15 +1,28 @@
 class Song
-  attr_accessor :song_name, :artist
+attr_accessor :name
+attr_reader :artist
+@@all = []
 
-  @@all = []
+def initialize(name)
+  @name = name
+  @@all << self
+end
 
+def self.all
+  @@all
+end
 
-  def initialize(name)
-    @song_name = name
-    @@all << name
-  end
+def artist=(artist)
+  @artist = artist
+end
 
-  def self.all
-    @@all
-  end
+def self.new_by_filename(file_name)
+    file_name.slice!(/.mp3/)
+    song_array = file_name.split(" - ")
+    artist = Artist.new(song_array[0])
+    song = self.new(song_array[1])
+    song.artist = artist
+    song
+end
+
 end
